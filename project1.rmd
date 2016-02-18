@@ -1,8 +1,16 @@
 ---
-title: "project1.rmd"
-author: "Srinivas Ksheerasagara"
+Author: "Srinivas Ksheerasagara"
 date: "February 14, 2016"
+output: 
+  html_document: 
+    keep_md: yes
 ---
+
+Introduction
+
+It is now possible to collect a large amount of data about personal movement using activity monitoring devices such as a Fitbit, Nike Fuelband, or Jawbone Up. These type of devices are part of the "quantified self" movement -- a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. But these data remain under-utilized both because the raw data are hard to obtain and there is a lack of statistical methods and software for processing and interpreting the data.
+
+This assignment makes use of data from a personal activity monitoring device. This device collects data at 5 minute intervals through out the day. The data consists of two months of data from an anonymous individual collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day.
 
 Read activity.csv file
 
@@ -16,7 +24,7 @@ Calculate mean steps per day and plot the same
 steps_per_day <- aggregate(steps ~ date, data, sum)
 ```
 
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 hist(steps_per_day$steps, main = paste("Steps per day"), xlab = "Steps per day")
 ```
 
@@ -27,7 +35,7 @@ rmean <- mean(steps_per_day$steps)
 rmedian <- median(steps_per_day$steps)
 ```
 
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 print(paste0("Mean of steps per day : ", rmean))
 print(paste0("Median of steps per day : ", rmedian))
 ```
@@ -41,7 +49,7 @@ pattern <- aggregate(steps ~ interval, data, mean)
 
 Plot of steps per interval
 
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 plot(pattern$interval, pattern$steps, type = "l", xlab = "Interval", ylab="steps")
 ```
 
@@ -49,7 +57,7 @@ plot(pattern$interval, pattern$steps, type = "l", xlab = "Interval", ylab="steps
 max_interval <- pattern[which.max(pattern$steps), 1]
 ```
 
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 print(paste0("The 5 minute interval for which the mean of steps is highest is : ", max_interval))
 ```
 
@@ -60,7 +68,7 @@ Imputing missing values
 incompleteCases <- sum(is.na(data$steps))
 ```
 
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 print(paste0("Number of missing values : ", incompleteCases))
 ```
 
@@ -105,7 +113,7 @@ Calculate total difference
 total_diff <- sum(steps_by_day_i$steps) - sum(steps_per_day$steps)
 ```
 
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 print(paste0("Imputed mean is : ", rmean.i))
 print(paste0("Imputed median is : ", rmedian.i))
 print(paste0("Mean difference between imputed and non-imputed data : ", meandiff))

@@ -150,16 +150,32 @@ total_diff <- sum(steps_by_day_i$steps) - sum(steps_per_day$steps)
 ```
 
 
+```r
+print(paste0("Imputed mean is : ", rmean.i))
+```
+
 ```
 ## [1] "Imputed mean is : 10589.6937828642"
+```
+
+```r
+print(paste0("Imputed median is : ", rmedian.i))
 ```
 
 ```
 ## [1] "Imputed median is : 10766.1886792453"
 ```
 
+```r
+print(paste0("Mean difference between imputed and non-imputed data : ", meandiff))
+```
+
 ```
 ## [1] "Mean difference between imputed and non-imputed data : -176.494896381069"
+```
+
+```r
+print(paste0("Median difference between imputed and non-imputed data : ", mediandiff))
 ```
 
 ```
